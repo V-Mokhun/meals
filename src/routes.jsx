@@ -4,12 +4,14 @@ import {
   LOG_IN_ROUTE,
   MEAL_ROUTE,
   PROFILE_ROUTE,
+  RANDOM_MEALS_ROUTE,
   SIGN_UP_ROUTE,
 } from "./constants/routes";
 import Home from "./pages/Home";
 import LogIn from "./pages/LogIn";
 import Meal from "./pages/Meal";
 import Profile from "./pages/Profile";
+import Random from "./pages/Random";
 import SignUp from "./pages/SignUp";
 
 export const authRoutes = [
@@ -34,6 +36,10 @@ export const publicRoutes = [
   {
     path: HOME_ROUTE,
     Component: <Home />,
+  },
+  {
+    path: RANDOM_MEALS_ROUTE,
+    Component: <Random />,
   },
   {
     path: `${MEAL_ROUTE}/:id`,

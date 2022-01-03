@@ -5,6 +5,7 @@ import { FirebaseContext } from "./context/firebase";
 import { StoreContext } from "./context/store";
 import UserStore from "./store/UserStore";
 import firebase from "./lib/firebase";
+import "./index.css";
 
 const user = new UserStore();
 const ContextProvider = ({ children }) => {
