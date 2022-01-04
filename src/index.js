@@ -6,10 +6,10 @@ import { StoreContext } from "./context/store";
 import UserStore from "./store/UserStore";
 import firebase from "./lib/firebase";
 import "./index.css";
+import MealStore from "./store/MealStore";
 
-const user = new UserStore();
 const ContextProvider = ({ children }) => {
-  const storeContextValue = useMemo(() => ({ user }), []);
+  const storeContextValue = useMemo(() => ({ user: new UserStore(), meal: new MealStore() }), []);
 
   return (
     <FirebaseContext.Provider value={firebase}>
