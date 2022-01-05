@@ -6,7 +6,7 @@ const Pagination = observer(({ meal }) => {
   const totalPages = Math.ceil(meal.totalCount / meal.numberOfMeals);
   const [page, setPage] = useState(1);
 
-  const onPageChange = (event, value) => {
+  const onPageChange = (_, value) => {
     meal.setOffset((value - 1) * meal.numberOfMeals);
     setPage(value);
   };

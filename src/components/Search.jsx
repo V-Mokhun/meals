@@ -1,44 +1,21 @@
-import React, { useContext, useEffect, useState } from "react";
 import SearchIcon from "@mui/icons-material/Search";
-import { observer } from "mobx-react-lite";
 import { Box, Button, FormHelperText, TextField } from "@mui/material";
+import { observer } from "mobx-react-lite";
+import React, { useContext, useEffect, useState } from "react";
 import { getMealsByQuery } from "../api/meal";
 import { StoreContext } from "../context/store";
 
-const Search = observer(({ setLoading }) => {
+const Search = observer(({ searchValue, setSearchValue, setLoading, handleSearchSubmit }) => {
   const { meal, user } = useContext(StoreContext);
-  const [searchValue, setSearchValue] = useState("");
   const [error, setError] = useState("");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!searchValue.trim()) return;
+
     setLoading(true);
 
-    const result = await getMealsByQuery(searchValue);
-
-    if (result.results.length > 0) {
-      localStorage.setItem("last-query", searchValue);
-      user.setLastQuery(searchValue);
-
-      localStorage.setItem(
-        "meal",
-        JSON.stringify({
-          meals: result.results,
-          totalCount: result.totalResults,
-          numberOfMeals: result.number,
-          offset: result.offset,
-        })
-      );
-      meal.setMeals(result.results);
-      meal.setTotalCount(result.totalResults);
-      meal.setNumberOfMeals(result.number);
-      meal.setOffset(result.offset);
-
-      setError("");
-    } else {
-      setError("Could not find any meals! Try again :)");
-    }
+    handleSearchSubmit(setError);
 
     setLoading(false);
     setSearchValue("");

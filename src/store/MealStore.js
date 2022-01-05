@@ -11,6 +11,44 @@ import { makeAutoObservable } from "mobx";
 // CUISINE
 // TYPE
 
+export const SORT_OPTIONS = ["POPULARITY", "HEALTHINESS", "PRICE", "TIME", "CALORIES"];
+
+export const CUISINE_OPTIONS = [
+  "African",
+  "American",
+  "British",
+  "Chinese",
+  "Eastern European",
+  "European",
+  "French",
+  "German",
+  "Greek",
+  "Indian",
+  "Italian",
+  "Japanese",
+  "Korean",
+  "Latin American",
+  "Mexican",
+  "Middle Eastern",
+  "Nordic",
+  "Southern",
+  "Spanish",
+  "Thai",
+  "Vietnamese",
+];
+
+export const TYPE_OPTIONS = [
+  "MAIN COURSE",
+  "SIDE DISH",
+  "DESSERT",
+  "SALAD",
+  "BREAKFAST",
+  "SOUP",
+  "BEVERAGE",
+  "SNACK",
+  "DRINK",
+];
+
 export default class MealStore {
   constructor() {
     this._meals = [];
