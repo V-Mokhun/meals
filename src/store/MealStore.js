@@ -1,5 +1,16 @@
 import { makeAutoObservable } from "mobx";
 
+// QUERY BY:
+// NUMBER OF MEAlS
+// SORT:
+//    POPULARITY
+//    HEALTHINESS
+//    PRICE
+//    TIME
+//    CALORIES
+// CUISINE
+// TYPE
+
 export default class MealStore {
   constructor() {
     this._meals = [];

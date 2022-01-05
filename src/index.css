@@ -128,3 +128,7 @@ textarea {
 [hidden] {
   display: none;
 }
+
+.MuiPagination-ul {
+  justify-content: center;
+}

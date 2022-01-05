@@ -35,7 +35,7 @@ const App = observer(() => {
     <BrowserRouter>
       <div className="wrapper">
         <Header />
-        <main className="main">
+        <main className="main" style={{ paddingBottom: 30 }}>
           <Routes>
             {authRoutes.map((route) => {
               return (
