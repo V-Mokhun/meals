@@ -1,16 +1,5 @@
 import { makeAutoObservable } from "mobx";
 
-// QUERY BY:
-// NUMBER OF MEAlS
-// SORT:
-//    POPULARITY
-//    HEALTHINESS
-//    PRICE
-//    TIME
-//    CALORIES
-// CUISINE
-// TYPE
-
 export const SORT_OPTIONS = ["POPULARITY", "HEALTHINESS", "PRICE", "TIME", "CALORIES"];
 
 export const CUISINE_OPTIONS = [

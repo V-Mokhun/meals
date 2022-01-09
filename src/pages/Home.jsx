@@ -2,7 +2,7 @@ import { Box, Container } from "@mui/material";
 import { observer } from "mobx-react-lite";
 import React, { useCallback, useContext, useState } from "react";
 import { getMealsByQuery } from "../api/meal";
-import Meals from "../components/Meals";
+import Meals from "../components/Meals/Meals";
 import Search from "../components/Search";
 import Sidebar from "../components/Sidebar";
 import { StoreContext } from "../context/store";

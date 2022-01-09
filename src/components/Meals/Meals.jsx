@@ -1,9 +1,9 @@
 import { Box, CircularProgress } from "@mui/material";
 import { observer } from "mobx-react-lite";
 import React, { useContext } from "react";
-import { StoreContext } from "../context/store";
+import { StoreContext } from "../../context/store";
 import MealsList from "./MealsList";
-import Pagination from "./Pagination";
+import Pagination from "../Pagination";
 
 const Meals = observer(({ loading }) => {
   const { meal } = useContext(StoreContext);
