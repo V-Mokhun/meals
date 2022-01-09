@@ -14,6 +14,7 @@ import { makeAutoObservable } from "mobx";
 export const SORT_OPTIONS = ["POPULARITY", "HEALTHINESS", "PRICE", "TIME", "CALORIES"];
 
 export const CUISINE_OPTIONS = [
+  "All",
   "African",
   "American",
   "British",
@@ -38,6 +39,7 @@ export const CUISINE_OPTIONS = [
 ];
 
 export const TYPE_OPTIONS = [
+  "ALL",
   "MAIN COURSE",
   "SIDE DISH",
   "DESSERT",

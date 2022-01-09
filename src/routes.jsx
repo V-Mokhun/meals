@@ -4,7 +4,7 @@ import {
   LOG_IN_ROUTE,
   MEAL_ROUTE,
   PROFILE_ROUTE,
-  RANDOM_MEALS_ROUTE,
+  RANDOM_RECIPE_ROUTE,
   SIGN_UP_ROUTE,
 } from "./constants/routes";
 import Home from "./pages/Home";
@@ -38,7 +38,7 @@ export const publicRoutes = [
     Component: <Home />,
   },
   {
-    path: RANDOM_MEALS_ROUTE,
+    path: RANDOM_RECIPE_ROUTE,
     Component: <Random />,
   },
   {

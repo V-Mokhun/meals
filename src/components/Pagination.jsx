@@ -11,7 +11,7 @@ const Pagination = observer(({ meal }) => {
     setPage(value);
   };
 
-  return meal.meals.length > 0 ? (
+  return meal.meals?.length > 0 ? (
     <UiPagination page={page} onChange={onPageChange} variant="outlined" count={totalPages} />
   ) : null;
 });

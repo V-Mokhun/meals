@@ -1,5 +1,5 @@
 export const HOME_ROUTE = `/`;
-export const RANDOM_MEALS_ROUTE = `/random`;
+export const RANDOM_RECIPE_ROUTE = `/random`;
 export const MEAL_ROUTE = `/product`;
 export const PROFILE_ROUTE = `/profile`;
 export const LOG_IN_ROUTE = `/log-in`;

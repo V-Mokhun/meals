@@ -5,9 +5,10 @@ import React, { useContext, useEffect, useState } from "react";
 import { getMealsByQuery } from "../api/meal";
 import { StoreContext } from "../context/store";
 
-const Search = observer(({ searchValue, setSearchValue, setLoading, handleSearchSubmit }) => {
+const Search = observer(({ setLoading, handleSearchSubmit }) => {
   const { meal, user } = useContext(StoreContext);
   const [error, setError] = useState("");
+  const [searchValue, setSearchValue] = useState("");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -15,7 +16,7 @@ const Search = observer(({ searchValue, setSearchValue, setLoading, handleSearch
 
     setLoading(true);
 
-    handleSearchSubmit(setError);
+    handleSearchSubmit(searchValue, setError);
 
     setLoading(false);
     setSearchValue("");

@@ -1,21 +1,14 @@
 /* eslint-disable no-nested-ternary */
 import { Box, FormControl, InputLabel, MenuItem, Select, TextField } from "@mui/material";
 import { observer } from "mobx-react-lite";
-import React, { useContext, useEffect, useMemo, useState } from "react";
+import React, { useContext, useEffect, useMemo } from "react";
 import { getMealsByQuery } from "../api/meal";
 import { StoreContext } from "../context/store";
 import useDebounce from "../hooks/useDebounce";
 import { CUISINE_OPTIONS, SORT_OPTIONS, TYPE_OPTIONS } from "../store/MealStore";
 
-const Sidebar = observer(({ setLoading }) => {
+const Sidebar = observer(({ selectedOptions, setSelectedOptions, setLoading }) => {
   const { meal, user } = useContext(StoreContext);
-  const { numberOfMeals } = meal;
-  const [selectedOptions, setSelectedOptions] = useState(() => ({
-    numberOfMeals,
-    sortOption: "popularity",
-    cuisine: "",
-    type: "",
-  }));
 
   const SELECT_ITEMS = useMemo(
     () => [
@@ -39,22 +32,23 @@ const Sidebar = observer(({ setLoading }) => {
   );
 
   const setMealsByOptions = async () => {
-    if (user.lastQuery) {
-      setLoading(true);
-      let result;
+    setLoading(true);
+    let result;
 
-      if (selectedOptions.cuisine || selectedOptions.type) {
-        result = await getMealsByQuery(null, meal.offset, selectedOptions);
-      } else {
-        result = await getMealsByQuery(user.lastQuery, meal.offset, selectedOptions);
-      }
-
-      meal.setMeals(result.results);
-      meal.setNumberOfMeals(result.number);
-      meal.setTotalCount(result.totalResults);
-      meal.setOffset(result.offset);
-      setLoading(false);
+    if (
+      selectedOptions.cuisine.toLowerCase() !== "all" ||
+      selectedOptions.type.toLowerCase() !== "all"
+    ) {
+      result = await getMealsByQuery(null, meal.offset, selectedOptions);
+    } else {
+      result = await getMealsByQuery(user.lastQuery, meal.offset, selectedOptions);
     }
+
+    meal.setMeals(result.results);
+    meal.setNumberOfMeals(result.number);
+    meal.setTotalCount(result.totalResults);
+    meal.setOffset(result.offset);
+    setLoading(false);
   };
 
   useDebounce(

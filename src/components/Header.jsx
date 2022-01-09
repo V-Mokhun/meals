@@ -17,7 +17,7 @@ import {
   HOME_ROUTE,
   LOG_IN_ROUTE,
   PROFILE_ROUTE,
-  RANDOM_MEALS_ROUTE,
+  RANDOM_RECIPE_ROUTE,
   SIGN_UP_ROUTE,
 } from "../constants/routes";
 import { FirebaseContext } from "../context/firebase";
@@ -90,9 +90,9 @@ const Header = observer(() => {
               }}
             >
               <MenuItem onClick={handleCloseNavMenu}>
-                <Link to={RANDOM_MEALS_ROUTE}>
+                <Link to={RANDOM_RECIPE_ROUTE}>
                   <Typography color="primary" textAlign="center">
-                    Random meals
+                    Random recipe
                   </Typography>
                 </Link>
               </MenuItem>
@@ -109,9 +109,9 @@ const Header = observer(() => {
             </Link>
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
-            <Link to={RANDOM_MEALS_ROUTE}>
+            <Link to={RANDOM_RECIPE_ROUTE}>
               <Button onClick={handleCloseNavMenu} sx={{ my: 2, color: "white", display: "block" }}>
-                Random meals
+                Random recipe
               </Button>
             </Link>
           </Box>

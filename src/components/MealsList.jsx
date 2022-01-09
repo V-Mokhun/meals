@@ -4,7 +4,7 @@ import React from "react";
 import MealsItem from "./MealsItem";
 
 const MealsList = observer(({ meal }) => {
-  return meal.meals.length > 0 ? (
+  return meal.meals?.length > 0 ? (
     <Box
       sx={{
         display: "flex",

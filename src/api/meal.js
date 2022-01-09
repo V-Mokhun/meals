@@ -1,7 +1,7 @@
 import { $host, API_SEARCH_URL } from ".";
 
 export const getMealsByQuery = async (query, offset, options = {}) => {
-  let searchQuery = `${API_SEARCH_URL}${query ? `${query}` : ""}${
+  let searchQuery = `${API_SEARCH_URL}${query ? `&query=${query}` : ""}${
     offset ? `&offset=${offset}` : ""
   }`;
 
@@ -13,15 +13,13 @@ export const getMealsByQuery = async (query, offset, options = {}) => {
     searchQuery += `&sort=${options.sortOption}`;
   }
 
-  if (options.cuisine) {
+  if (options.cuisine && options.cuisine.toLowerCase() !== "all") {
     searchQuery += `&cuisine=${options.cuisine}`;
   }
 
-  if (options.type) {
+  if (options.type && options.type.toLowerCase() !== "all") {
     searchQuery += `&type=${options.type}`;
   }
-
-  console.log(searchQuery);
 
   return $host
     .get(searchQuery)
