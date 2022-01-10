@@ -29,6 +29,10 @@ const App = observer(() => {
       meal.setNumberOfMeals(numberOfMeals);
       meal.setOffset(offset);
     }
+
+    if (localStorage.getItem("favorite-meals")) {
+      user.setFavoriteMeals(JSON.parse(localStorage.getItem("favorite-meals")));
+    }
   }, []);
 
   return (

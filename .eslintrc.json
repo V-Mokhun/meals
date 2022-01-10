@@ -1,5 +1,5 @@
 {
-  "extends": ["airbnb", "plugin:prettier/recommended", "prettier"],
+  "extends": ["airbnb", "plugin:prettier/recommended", "prettier", "react-app"],
   "env": {
     "browser": true,
     "commonjs": true,
@@ -7,8 +7,10 @@
     "jest": true,
     "node": true
   },
+  "parser": "@babel/eslint-parser",
   "parserOptions": {
-    "ecmaVersion": 2020
+    "ecmaVersion": 2020,
+    "requireConfigFile": false
   },
   "rules": {
     "jsx-a11y/href-no-hash": ["off"],
@@ -45,6 +47,7 @@
     "import/prefer-default-export": 0,
     "no-unused-vars": "warn",
     "react/forbid-prop-types": 0,
-    "no-underscore-dangle": 0
+    "no-underscore-dangle": 0,
+    "no-invalid-this": 0
   }
 }
