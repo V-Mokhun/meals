@@ -22,6 +22,7 @@ import {
 } from "../constants/routes";
 import { FirebaseContext } from "../context/firebase";
 import { StoreContext } from "../context/store";
+import StarIcon from "../assets/images/star.png";
 
 const Header = observer(() => {
   const { user } = useContext(StoreContext);
@@ -116,7 +117,7 @@ const Header = observer(() => {
             </Link>
           </Box>
           {user.isAuth ? (
-            <Box sx={{ flexGrow: 0 }}>
+            <Box sx={{ flexGrow: 0, position: "relative" }}>
               <Tooltip title="Open settings">
                 <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                   <Avatar alt="Avatar" src="/images/avatar.png" />
@@ -152,6 +153,23 @@ const Header = observer(() => {
                   <Typography textAlign="center">Sign out</Typography>
                 </MenuItem>
               </Menu>
+              <Box
+                sx={{
+                  position: "absolute",
+                  bottom: -15,
+                  right: -15,
+                  pointerEvents: "none",
+                  background: `url(${StarIcon}) center center/40px 40px no-repeat`,
+                }}
+              >
+                <Typography
+                  sx={{ display: "block", py: 1, px: 1.5 }}
+                  component="span"
+                  variant="body2"
+                >
+                  {user.favoriteMeals.length}
+                </Typography>
+              </Box>
             </Box>
           ) : (
             <Box sx={{ flexGrow: 0 }}>
