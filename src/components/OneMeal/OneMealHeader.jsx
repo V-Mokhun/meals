@@ -8,7 +8,7 @@ import { observer } from "mobx-react-lite";
 import React from "react";
 
 const OneMealHeader = observer(
-  ({ meal, isMealInFavoriteMeals, handleAddFavoriteMeal, handleRemoveFavoriteMeal }) => {
+  ({ meal, isAuth, isMealInFavoriteMeals, handleAddFavoriteMeal, handleRemoveFavoriteMeal }) => {
     return (
       <Grid
         container
@@ -96,28 +96,30 @@ const OneMealHeader = observer(
               </Box>
             ) : null}
           </Box>
-          <Button
-            onClick={() => {
-              if (isMealInFavoriteMeals(meal.id)) {
-                handleRemoveFavoriteMeal(meal.id);
-              } else {
-                const { id, image, title, aggregateLikes } = meal;
+          {isAuth && (
+            <Button
+              onClick={() => {
+                if (isMealInFavoriteMeals(meal.id)) {
+                  handleRemoveFavoriteMeal(meal.id);
+                } else {
+                  const { id, image, title, aggregateLikes } = meal;
 
-                const favoriteMeal = {
-                  id,
-                  image,
-                  title,
-                  aggregateLikes,
-                };
+                  const favoriteMeal = {
+                    id,
+                    image,
+                    title,
+                    aggregateLikes,
+                  };
 
-                handleAddFavoriteMeal(favoriteMeal);
-              }
-            }}
-            endIcon={<StarIcon />}
-            variant="contained"
-          >
-            {isMealInFavoriteMeals(meal.id) ? "Remove from favorites" : "Add to favorites"}
-          </Button>
+                  handleAddFavoriteMeal(favoriteMeal);
+                }
+              }}
+              endIcon={<StarIcon />}
+              variant="contained"
+            >
+              {isMealInFavoriteMeals(meal.id) ? "Remove from favorites" : "Add to favorites"}
+            </Button>
+          )}
         </Grid>
         <Grid item xs={6}>
           {meal.image && (

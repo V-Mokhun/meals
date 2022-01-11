@@ -27,6 +27,7 @@ const OneMeal = observer(({ meal }) => {
       <Box>
         <OneMealHeader
           meal={meal}
+          isAuth={user.isAuth}
           isMealInFavoriteMeals={isMealInFavoriteMeals}
           handleAddFavoriteMeal={handleAddFavoriteMeal}
           handleRemoveFavoriteMeal={handleRemoveFavoriteMeal}
