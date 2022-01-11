@@ -10,7 +10,7 @@ const useTimeout = (callback, delay) => {
 
   const set = useCallback(() => {
     timeoutRef.current = setTimeout(() => callbackRef.current(), delay);
-  }, [delay]);
+  }, []);
 
   const clear = useCallback(() => timeoutRef.current && clearTimeout(timeoutRef.current), []);
 

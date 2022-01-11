@@ -20,7 +20,7 @@ const useAuthListener = () => {
     });
 
     return () => listener();
-  }, [firebase, user]);
+  }, []);
 
   return user;
 };

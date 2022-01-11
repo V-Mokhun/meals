@@ -12,21 +12,15 @@ const OneMeal = observer(({ meal }) => {
   const { user } = useContext(StoreContext);
   const { isMealInFavoriteMeals } = user;
 
-  const handleAddFavoriteMeal = useCallback(
-    (favoriteMeal) => {
-      user.addFavoriteMeal(favoriteMeal);
-      localStorage.setItem("favorite-meals", JSON.stringify(user.favoriteMeals));
-    },
-    [user]
-  );
+  const handleAddFavoriteMeal = useCallback((favoriteMeal) => {
+    user.addFavoriteMeal(favoriteMeal);
+    localStorage.setItem("favorite-meals", JSON.stringify(user.favoriteMeals));
+  }, []);
 
-  const handleRemoveFavoriteMeal = useCallback(
-    (id) => {
-      user.removeFavoriteMeal(id);
-      localStorage.setItem("favorite-meals", JSON.stringify(user.favoriteMeals));
-    },
-    [user]
-  );
+  const handleRemoveFavoriteMeal = useCallback((id) => {
+    user.removeFavoriteMeal(id);
+    localStorage.setItem("favorite-meals", JSON.stringify(user.favoriteMeals));
+  }, []);
 
   return (
     meal && (

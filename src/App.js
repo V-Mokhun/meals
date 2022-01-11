@@ -33,7 +33,7 @@ const App = observer(() => {
     if (localStorage.getItem("favorite-meals")) {
       user.setFavoriteMeals(JSON.parse(localStorage.getItem("favorite-meals")));
     }
-  }, [meal, user]);
+  }, []);
 
   return (
     <BrowserRouter>
