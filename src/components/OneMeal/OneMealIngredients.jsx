@@ -3,6 +3,7 @@ import React, { useState } from "react";
 
 const OneMealIngredients = ({ servings, extendedIngredients }) => {
   const [measure, setMeasure] = useState("us");
+
   return (
     <Box sx={{ mb: 3 }}>
       <Box sx={{ display: "flex", justifyContent: "space-between", alignItems: "center", mb: 3 }}>
@@ -49,7 +50,7 @@ const OneMealIngredients = ({ servings, extendedIngredients }) => {
                 mb: 3,
                 flex: "0 1 calc(20% - 16px)",
               }}
-              key={ingr.id}
+              key={`${ingr.id}-${ingr.original}`}
             >
               <Box
                 sx={{
@@ -62,7 +63,8 @@ const OneMealIngredients = ({ servings, extendedIngredients }) => {
               >
                 <img
                   src={`https://spoonacular.com/cdn/ingredients_100x100/${ingr.image}`}
-                  alt={ingr.nameClean}
+                  alt={ingr.name}
+                  style={{ maxWidth: 100, maxHeight: 100, objectFit: "cover" }}
                 />
               </Box>
               <ListItemText
@@ -84,7 +86,7 @@ const OneMealIngredients = ({ servings, extendedIngredients }) => {
                   } ${ingr.measures[measure].unitLong}`}
                 </Typography>
                 <Typography component="span" variant="body1" sx={{ fontWeight: 700 }}>
-                  {ingr.nameClean}
+                  {ingr.name}
                 </Typography>
                 {ingr.meta.length > 0 && (
                   <Typography

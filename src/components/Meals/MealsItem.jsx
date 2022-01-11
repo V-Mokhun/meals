@@ -21,7 +21,10 @@ const MealsItem = ({ meal }) => {
           <CardMedia
             sx={{ maxHeight: "200px", height: "100%" }}
             component="img"
-            image={meal.image}
+            image={
+              meal.image ||
+              `https://spoonacular.com/recipeImages/${meal.id}-312x231.${meal.imageType}`
+            }
             alt={`${meal.title}`}
           />
           <CardContent>

@@ -1,5 +1,5 @@
 /* eslint-disable dot-notation */
-import { Box, List, ListItem, ListItemText, Typography } from "@mui/material";
+import { Box } from "@mui/material";
 import { observer } from "mobx-react-lite";
 import React, { useCallback, useContext } from "react";
 import { StoreContext } from "../../context/store";
@@ -11,7 +11,6 @@ import OneMealTags from "./OneMealTags";
 const OneMeal = observer(({ meal }) => {
   const { user } = useContext(StoreContext);
   const { isMealInFavoriteMeals } = user;
-  console.log(meal);
 
   const handleAddFavoriteMeal = useCallback(
     (favoriteMeal) => {

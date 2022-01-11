@@ -3,7 +3,7 @@ import AttachMoneyIcon from "@mui/icons-material/AttachMoney";
 import KitchenIcon from "@mui/icons-material/Kitchen";
 import StarIcon from "@mui/icons-material/Star";
 import ThumbUpIcon from "@mui/icons-material/ThumbUp";
-import { Box, Button, Grid, Paper, Typography } from "@mui/material";
+import { Box, Button, Grid, Typography } from "@mui/material";
 import { observer } from "mobx-react-lite";
 import React from "react";
 
@@ -22,7 +22,7 @@ const OneMealHeader = observer(
         }}
       >
         <Grid item xs={6}>
-          <Typography style={{ textAlign: "center", marginBottom: 30 }} variant="h2" component="h1">
+          <Typography style={{ textAlign: "center", marginBottom: 30 }} variant="h3" component="h1">
             {meal.title}
           </Typography>
           <Box sx={{ display: "flex", alignItems: "center", flexWrap: "wrap", mb: 4 }}>

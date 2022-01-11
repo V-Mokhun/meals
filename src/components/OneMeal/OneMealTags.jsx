@@ -41,6 +41,7 @@ const OneMealTags = ({ meal }) => {
           if (meal[tag.propName]) {
             return (
               <ListItem
+                key={tag.showName}
                 sx={{
                   py: 0.5,
                   px: 2,
@@ -61,6 +62,7 @@ const OneMealTags = ({ meal }) => {
           meal.dishTypes.length > 0 &&
           meal.dishTypes.map((type) => (
             <ListItem
+              key={type}
               sx={{
                 py: 0.5,
                 px: 2,

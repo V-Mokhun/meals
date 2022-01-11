@@ -40,9 +40,18 @@ export const fetchMealById = async (id) => {
 };
 
 export const fetchSimilarMealsById = async (id) => {
-  // const searchQuery = `${API_URL}/recipes/${id}/similar?apiKey=${process.env.REACT_APP_API_KEY}`;
-  // return $host
-  //   .get(searchQuery)
-  //   .then((resp) => resp.data)
-  //   .catch((err) => err.message);
+  const searchQuery = `${API_URL}/recipes/${id}/similar?apiKey=${process.env.REACT_APP_API_KEY}`;
+  return $host
+    .get(searchQuery)
+    .then((resp) => resp.data)
+    .catch((err) => err.message);
+};
+
+export const fetchRandomMeal = async () => {
+  const searchQuery = `${API_URL}/recipes/random?apiKey=${process.env.REACT_APP_API_KEY}`;
+
+  return $host
+    .get(searchQuery)
+    .then((resp) => resp.data)
+    .catch((err) => err.message);
 };
