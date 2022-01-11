@@ -18,32 +18,35 @@ const Home = observer(() => {
     type: "all",
   }));
 
-  const handleSearchSubmit = useCallback(async (searchValue, setError) => {
-    const result = await getMealsByQuery(searchValue);
-    if (result.results.length > 0) {
-      setSelectedOptions((prev) => ({ ...prev, cuisine: "All", type: "all" }));
-      localStorage.setItem("last-query", searchValue);
-      user.setLastQuery(searchValue);
+  const handleSearchSubmit = useCallback(
+    async (searchValue, setError) => {
+      const result = await getMealsByQuery(searchValue);
+      if (result.results.length > 0) {
+        setSelectedOptions((prev) => ({ ...prev, cuisine: "All", type: "all" }));
+        localStorage.setItem("last-query", searchValue);
+        user.setLastQuery(searchValue);
 
-      localStorage.setItem(
-        "meal",
-        JSON.stringify({
-          meals: result.results,
-          totalCount: result.totalResults,
-          numberOfMeals: result.number,
-          offset: result.offset,
-        })
-      );
-      meal.setMeals(result.results);
-      meal.setTotalCount(result.totalResults);
-      meal.setNumberOfMeals(result.number);
-      meal.setOffset(result.offset);
+        localStorage.setItem(
+          "meal",
+          JSON.stringify({
+            meals: result.results,
+            totalCount: result.totalResults,
+            numberOfMeals: result.number,
+            offset: result.offset,
+          })
+        );
+        meal.setMeals(result.results);
+        meal.setTotalCount(result.totalResults);
+        meal.setNumberOfMeals(result.number);
+        meal.setOffset(result.offset);
 
-      setError("");
-    } else {
-      setError("Could not find your meals. Try again!");
-    }
-  }, []);
+        setError("");
+      } else {
+        setError("Could not find your meals. Try again!");
+      }
+    },
+    [meal, user]
+  );
 
   return (
     <Container maxWidth="xl">

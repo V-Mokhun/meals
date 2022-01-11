@@ -32,7 +32,7 @@ const Search = observer(({ setLoading, handleSearchSubmit }) => {
     if (user.lastQuery) {
       getMealsWithOffset();
     }
-  }, [meal.offset]);
+  }, [user.lastQuery, meal.offset, setLoading, meal]);
 
   return (
     <form style={{ paddingBottom: 30, width: "100%" }} onSubmit={handleSubmit}>
