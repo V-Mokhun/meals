@@ -29,7 +29,8 @@ const Search = observer(({ setLoading, handleSearchSubmit }) => {
       meal.setMeals(result.results);
       setLoading(false);
     };
-    if (user.lastQuery) {
+
+    if (meal.offset) {
       getMealsWithOffset();
     }
   }, [user.lastQuery, meal.offset]);
